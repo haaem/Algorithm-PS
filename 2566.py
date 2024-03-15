@@ -11,4 +11,4 @@ for k in range(9):
         i = k
         j = matrix[i].index(temp)
 print(m)
-print(i + " " + j)
+print(i+1, j+1)
