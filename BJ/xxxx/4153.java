@@ -1,0 +1,31 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class BJ4153 {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int a = Integer.parseInt(st.nextToken()), b = Integer.parseInt(st.nextToken()),
+				c = Integer.parseInt(st.nextToken());
+		while (a != 0 && b != 0 && c != 0) {
+			int max = Math.max(Math.max(a, b), c);
+			boolean rightAngle = false;
+			if (max == a && a * a == b * b + c * c) {
+				rightAngle = true;
+			} else if (max == b && b * b == a * a + c * c) {
+				rightAngle = true;
+			} else if (max == c && c * c == a * a + b * b) {
+				rightAngle = true;
+			}
+			if (rightAngle)
+				System.out.println("right");
+			else
+				System.out.println("wrong");
+			st = new StringTokenizer(br.readLine());
+			a = Integer.parseInt(st.nextToken());
+			b = Integer.parseInt(st.nextToken());
+			c = Integer.parseInt(st.nextToken());
+		}
+	}
+}
