@@ -1,0 +1,5 @@
+-- 코드를 작성해주세요
+SELECT COUNT(ID) as COUNT
+FROM ECOLI_DATA
+WHERE ((GENOTYPE & POWER(2, 1))) = 0 and ((GENOTYPE & POWER(2, 0)) > 0 or (GENOTYPE & POWER(2, 2)) > 0)
+# 지수가 n-1
