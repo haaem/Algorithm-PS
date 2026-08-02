@@ -1,0 +1,16 @@
+-- 코드를 작성해주세요
+WITH DATA_RANK AS (
+    SELECT ID, PERCENT_RANK() OVER (
+        ORDER BY SIZE_OF_COLONY DESC
+    ) SIZE_RANK
+    FROM ECOLI_DATA
+)
+
+SELECT ID, CASE
+                WHEN SIZE_RANK <= 0.25 THEN 'CRITICAL'
+                WHEN SIZE_RANK <= 0.5 THEN 'HIGH'
+                WHEN SIZE_RANK <= 0.75 THEN 'MEDIUM'
+                ELSE 'LOW'
+            END COLONY_NAME
+FROM DATA_RANK
+ORDER BY ID
