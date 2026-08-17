@@ -1,0 +1,3 @@
+SELECT (@hour := @hour + 1) as HOUR, (SELECT COUNT(ANIMAL_ID) FROM ANIMAL_OUTS WHERE HOUR(DATETIME) = @hour) as COUNT
+FROM ANIMAL_OUTS, (SELECT @hour := -1) temp
+WHERE @hour < 23;
